@@ -141,7 +141,7 @@ namespace P001_Connection
                 return;
             }
 
-            if (dbManager.UpdateCsapat(selectedRecord))
+            if (dbManager.UpdateCsapat(temp))
             {
                 tb1u.Text = string.Empty;
                 

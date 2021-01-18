@@ -141,7 +141,7 @@ namespace P001_Connection
                 return;
             }
 
-            if (dbManager.UpdatePoszt(selectedRecord))
+            if (dbManager.UpdatePoszt(temp))
             {
                 tb1u.Text = string.Empty;
                 
