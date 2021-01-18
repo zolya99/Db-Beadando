@@ -133,7 +133,7 @@ namespace P001_Connection
             try
             {
                 temp.Id = selectedRecord.Id;
-                temp.Nev = selectedRecord.Nev;
+                temp.Nev = tb1u.Text;
             }
             catch (Exception ex)
             {
