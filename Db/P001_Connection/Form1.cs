@@ -148,7 +148,7 @@ namespace P001_Connection
                 return;
             }
 
-            if (dbManager.UpdateFocista(selectedRecord))
+            if (dbManager.UpdateFocista(temp))
             {
                 MessageBox.Show("Sikeres módosítás!");
                 tb1u.Text = string.Empty;
