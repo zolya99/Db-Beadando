@@ -143,6 +143,7 @@ namespace P001_Connection
 
             if (dbManager.UpdatePoszt(temp))
             {
+                MessageBox.Show("Sikeres módosítás!");
                 tb1u.Text = string.Empty;
                 
                 

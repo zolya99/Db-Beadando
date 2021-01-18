@@ -167,14 +167,15 @@ namespace P001_Connection
 
         private void btnP_Click_1(object sender, EventArgs e)
         {
-            Form2 csapat = new Form2();
-            csapat.Show();
+            
+            Form3 poszt = new Form3();
+            poszt.Show();
         }
 
         private void btnC_Click_1(object sender, EventArgs e)
         {
-            Form3 poszt = new Form3();
-            poszt.Show();
+            Form2 csapat = new Form2();
+            csapat.Show();
         }
     }
 }
