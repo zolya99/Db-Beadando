@@ -1,0 +1,38 @@
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\bin\Debug\P001_Connection.exe.config
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\bin\Debug\P001_Connection.exe
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\bin\Debug\P001_Connection.pdb
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csprojAssemblyReference.cache
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Properties.Resources.resources
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.GenerateResource.cache
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.CoreCompileInputs.cache
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.CopyComplete
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.exe
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.pdb
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Balla\source\repos\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Form1.resources
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csprojAssemblyReference.cache
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Form1.resources
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Properties.Resources.resources
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.GenerateResource.cache
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.CoreCompileInputs.cache
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.exe
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.pdb
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\bin\Debug\P001_Connection.exe.config
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\bin\Debug\P001_Connection.exe
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\bin\Debug\P001_Connection.pdb
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.CopyComplete
+C:\Users\zolya\Desktop\Cucclik\Egyetemi órák\III. félév\Adatbázis II. gy\P001_Connection\P001_Connection\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csprojAssemblyReference.cache
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Form1.resources
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Properties.Resources.resources
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.GenerateResource.cache
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.CoreCompileInputs.cache
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.exe
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.pdb
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\bin\Debug\P001_Connection.exe.config
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\bin\Debug\P001_Connection.exe
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\bin\Debug\P001_Connection.pdb
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.csproj.CopyComplete
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Form2.resources
+C:\Users\zolya\Desktop\Új mappa\Régi verzió\P001_Connection\P001_Connection\obj\Debug\P001_Connection.Form3.resources
