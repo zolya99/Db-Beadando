@@ -49,7 +49,7 @@ namespace P001_Connection.Model.Manager
             return rows != 0;
         }
 
-        public bool DeletePoszt(Poszt record1)
+        public bool DeletePoszt(Poszt record)
         {
             OracleConnection oracleConnection = getConnection();
 
@@ -62,7 +62,7 @@ namespace P001_Connection.Model.Manager
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.Direction = System.Data.ParameterDirection.Input;
-            idParameter.Value = record1.Id;
+            idParameter.Value = record.Id;
             oracleCommand.Parameters.Add(idParameter);
 
             oracleConnection.Open();
@@ -220,7 +220,7 @@ namespace P001_Connection.Model.Manager
             return temp;
         }
 
-        public Poszt GetOnePoszt(Poszt record1)
+        public Poszt GetOnePoszt(Poszt record)
         {
             OracleConnection oracleConnection = getConnection();
 
@@ -236,7 +236,7 @@ namespace P001_Connection.Model.Manager
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.Direction = System.Data.ParameterDirection.Input;
-            idParameter.Value = record1.Id;
+            idParameter.Value = record.Id;
             command.Parameters.Add(idParameter);
 
             Poszt temp = null;
@@ -339,7 +339,7 @@ namespace P001_Connection.Model.Manager
             return rows != 0;
         }
 
-        public bool InsertPoszt(Poszt record1)
+        public bool InsertPoszt(Poszt record)
         {
             OracleConnection oracleConnection = getConnection();
 
@@ -352,14 +352,14 @@ namespace P001_Connection.Model.Manager
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.Direction = System.Data.ParameterDirection.Input;
-            idParameter.Value = record1.Id;
+            idParameter.Value = record.Id;
             oracleCommand.Parameters.Add(idParameter);
 
             OracleParameter megnevezesParameter = new OracleParameter();
             megnevezesParameter.ParameterName = "megnevezes";
             megnevezesParameter.DbType = System.Data.DbType.String;
             megnevezesParameter.Direction = System.Data.ParameterDirection.Input;
-            megnevezesParameter.Value = record1.Megnevezes;
+            megnevezesParameter.Value = record.Megnevezes;
             oracleCommand.Parameters.Add(megnevezesParameter);
 
             oracleConnection.Open();
@@ -452,7 +452,7 @@ namespace P001_Connection.Model.Manager
             return rows != 0;
         }
 
-        public bool UpdatePoszt(Poszt record1)
+        public bool UpdatePoszt(Poszt record)
         {
             OracleConnection oracleConnection = getConnection();
 
@@ -466,14 +466,14 @@ namespace P001_Connection.Model.Manager
             megnevezesParameter.ParameterName = "megnevezes";
             megnevezesParameter.DbType = System.Data.DbType.String;
             megnevezesParameter.Direction = System.Data.ParameterDirection.Input;
-            megnevezesParameter.Value = record1.Megnevezes;
+            megnevezesParameter.Value = record.Megnevezes;
             oracleCommand.Parameters.Add(megnevezesParameter);
 
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.Direction = System.Data.ParameterDirection.Input;
-            idParameter.Value = record1.Id;
+            idParameter.Value = record.Id;
             oracleCommand.Parameters.Add(idParameter);
 
             oracleConnection.Open();
