@@ -23,6 +23,11 @@ namespace P001_Connection
 
             dbManager = new Manager();
             btnlogout.Enabled = false;
+            if (login.logged)
+            {
+                btn_login.Enabled = false;
+                btnlogout.Enabled = true;
+            }
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -239,11 +244,9 @@ namespace P001_Connection
 
         private void btnlogout_Click(object sender, EventArgs e)
         {
-            if (login.logged)
-            {
-                btnlogout.Enabled = true;
+            
                 Close();
-            }
+            
         }
     }
 }
