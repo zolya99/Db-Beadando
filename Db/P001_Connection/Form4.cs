@@ -24,7 +24,14 @@ namespace P001_Connection
 
         }
 
-        private void btnlogin_Click(object sender, EventArgs e)
+        
+
+        private void Password_tb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnlogin_Click_1(object sender, EventArgs e)
         {
             records = dbManager.UserReadAll();
             foreach (User user in dbManager.UserReadAll())
@@ -41,11 +48,6 @@ namespace P001_Connection
                     MessageBox.Show("Ilyen felhasználónév és jelszó kombináció nem létezik! Kérlek próbáld újra!");
                 }
             }
-        }
-
-        private void Password_tb_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
