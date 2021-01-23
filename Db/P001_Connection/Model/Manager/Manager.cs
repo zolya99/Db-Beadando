@@ -288,8 +288,7 @@ namespace P001_Connection.Model.Manager
             return temp;
         }
 
-        // INSERT INTO orszagok(id, nev, iso2_code)
-        // VALUES(:id, :nev, :iso2_code);
+        
         public bool InsertFocista(Focista record)
         {
             OracleConnection oracleConnection = getConnection();
