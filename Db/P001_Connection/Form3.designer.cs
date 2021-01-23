@@ -36,6 +36,7 @@
             this.groupBox_update = new System.Windows.Forms.GroupBox();
             this.button_update = new System.Windows.Forms.Button();
             this.tb1u = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox_insert.SuspendLayout();
             this.groupBox_update.SuspendLayout();
             this.SuspendLayout();
@@ -44,17 +45,17 @@
             // 
             this.comboBox_contries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_contries.FormattingEnabled = true;
-            this.comboBox_contries.Location = new System.Drawing.Point(239, 82);
+            this.comboBox_contries.Location = new System.Drawing.Point(12, 12);
             this.comboBox_contries.Name = "comboBox_contries";
-            this.comboBox_contries.Size = new System.Drawing.Size(396, 24);
+            this.comboBox_contries.Size = new System.Drawing.Size(653, 24);
             this.comboBox_contries.TabIndex = 0;
             this.comboBox_contries.SelectedValueChanged += new System.EventHandler(this.comboBox_contries_SelectedValueChanged);
             // 
             // button_delete
             // 
-            this.button_delete.Location = new System.Drawing.Point(239, 146);
+            this.button_delete.Location = new System.Drawing.Point(687, 52);
             this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(151, 30);
+            this.button_delete.Size = new System.Drawing.Size(101, 30);
             this.button_delete.TabIndex = 1;
             this.button_delete.Text = "Törlés";
             this.button_delete.UseVisualStyleBackColor = true;
@@ -64,16 +65,16 @@
             // 
             this.groupBox_insert.Controls.Add(this.button_insert);
             this.groupBox_insert.Controls.Add(this.tb1);
-            this.groupBox_insert.Location = new System.Drawing.Point(411, 146);
+            this.groupBox_insert.Location = new System.Drawing.Point(405, 42);
             this.groupBox_insert.Name = "groupBox_insert";
-            this.groupBox_insert.Size = new System.Drawing.Size(260, 274);
+            this.groupBox_insert.Size = new System.Drawing.Size(260, 118);
             this.groupBox_insert.TabIndex = 2;
             this.groupBox_insert.TabStop = false;
-            this.groupBox_insert.Text = "groupBox_insert";
+            this.groupBox_insert.Text = "Új poszt hozzáadása";
             // 
             // button_insert
             // 
-            this.button_insert.Location = new System.Drawing.Point(6, 232);
+            this.button_insert.Location = new System.Drawing.Point(6, 69);
             this.button_insert.Name = "button_insert";
             this.button_insert.Size = new System.Drawing.Size(122, 36);
             this.button_insert.TabIndex = 2;
@@ -90,18 +91,19 @@
             // 
             // groupBox_update
             // 
+            this.groupBox_update.Controls.Add(this.label1);
             this.groupBox_update.Controls.Add(this.button_update);
             this.groupBox_update.Controls.Add(this.tb1u);
-            this.groupBox_update.Location = new System.Drawing.Point(145, 187);
+            this.groupBox_update.Location = new System.Drawing.Point(12, 42);
             this.groupBox_update.Name = "groupBox_update";
-            this.groupBox_update.Size = new System.Drawing.Size(260, 251);
+            this.groupBox_update.Size = new System.Drawing.Size(387, 118);
             this.groupBox_update.TabIndex = 3;
             this.groupBox_update.TabStop = false;
-            this.groupBox_update.Text = "groupBox_update";
+            this.groupBox_update.Text = "Poszt nevének módsítása";
             // 
             // button_update
             // 
-            this.button_update.Location = new System.Drawing.Point(6, 209);
+            this.button_update.Location = new System.Drawing.Point(6, 69);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(122, 36);
             this.button_update.TabIndex = 2;
@@ -111,22 +113,31 @@
             // 
             // tb1u
             // 
-            this.tb1u.Location = new System.Drawing.Point(6, 41);
+            this.tb1u.Location = new System.Drawing.Point(133, 41);
             this.tb1u.Name = "tb1u";
             this.tb1u.Size = new System.Drawing.Size(248, 22);
             this.tb1u.TabIndex = 0;
             // 
-            // Form2
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Poszt neve:";
+            // 
+            // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(805, 169);
             this.Controls.Add(this.groupBox_update);
             this.Controls.Add(this.groupBox_insert);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.comboBox_contries);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Poszt";
             this.Shown += new System.EventHandler(this.Form3_Shown);
             this.groupBox_insert.ResumeLayout(false);
             this.groupBox_insert.PerformLayout();
@@ -146,6 +157,7 @@
         private System.Windows.Forms.GroupBox groupBox_update;
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.TextBox tb1u;
+        private System.Windows.Forms.Label label1;
     }
 }
 

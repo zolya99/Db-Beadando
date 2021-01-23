@@ -91,7 +91,7 @@
             this.Controls.Add(this.Username_tb);
             this.Controls.Add(this.label1);
             this.Name = "Form4";
-            this.Text = "Form4";
+            this.Text = "Log in";
             this.ResumeLayout(false);
             this.PerformLayout();
 

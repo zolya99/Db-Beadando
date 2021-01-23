@@ -228,5 +228,10 @@ namespace P001_Connection
                 login.Show();
             }
         }
+
+        private void groupBox_update_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
