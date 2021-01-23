@@ -31,35 +31,33 @@ namespace P001_Connection
         private void loadComboBox()
         {
             records = dbManager.GetListPoszt();
-            // a records elemeit betöltöm a comboBox-ba 
-            // 0) jelzem, hogy frissítem az elemeket, így nem kell újrarajzolni
+            
             comboBox_contries.BeginUpdate();
-            // 1) ha van elem a cb-ben, akkor törlöm 
+            
             comboBox_contries.Items.Clear();
-            // 2) ciklus segítségével feltöltöm a comboBox-ot
+            
             foreach (Poszt record in records)
             {
                 comboBox_contries.Items.Add(record);
             }
 
-            // 3) jelzem, hogy kész vagyok a frissítéssel 
+             
             comboBox_contries.EndUpdate();
         }
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            // 1) van-e egyáltalán kiválasztva elem a listában 
-            // ha nincs kiválasztva, akkor a választott érték null 
+            
             if(selectedRecord == null)
             {
                 MessageBox.Show("Nincs elem kiválasztva a törléshez!");
                 return;
             }
 
-            // 2) kinyerem, hogy mit is kell törölni 
+            
             Poszt recordToDelete = selectedRecord;
 
-            // 3) törlöm a rekordot a db-ből 
+            
             bool success = dbManager.DeletePoszt(recordToDelete);
 
             if (success)
@@ -75,11 +73,11 @@ namespace P001_Connection
         private static Random rnd = new Random();
         private void button_insert_Click(object sender, EventArgs e)
         {
-            // a bevitt adatokból készítek egy rekordot 
+             
             Poszt newRecord = new Poszt();
             try
             {
-                newRecord.Id = rnd.Next(10, 100); // TODO: javítani később, ez csak tesztelésre 
+                newRecord.Id = rnd.Next(10, 100000); 
                 newRecord.Megnevezes = tb1.Text;
                 
             }
@@ -89,8 +87,6 @@ namespace P001_Connection
                 return;
             }
 
-            // ha ide jutunk, akkor a példányosítás során nem volt 
-            // gond, mehet az insert 
             bool success = dbManager.InsertPoszt(newRecord);
 
             if (success)

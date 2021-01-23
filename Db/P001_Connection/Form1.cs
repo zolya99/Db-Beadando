@@ -32,25 +32,23 @@ namespace P001_Connection
         private void loadComboBox()
         {
             records = dbManager.GetListFocista();
-            // a records elemeit betöltöm a comboBox-ba 
-            // 0) jelzem, hogy frissítem az elemeket, így nem kell újrarajzolni
+            
             comboBox_contries.BeginUpdate();
-            // 1) ha van elem a cb-ben, akkor törlöm 
+            
             comboBox_contries.Items.Clear();
-            // 2) ciklus segítségével feltöltöm a comboBox-ot
+            
             foreach (Focista record in records)
             {
                 comboBox_contries.Items.Add(record);
             }
 
-            // 3) jelzem, hogy kész vagyok a frissítéssel 
+            
             comboBox_contries.EndUpdate();
         }
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            // 1) van-e egyáltalán kiválasztva elem a listában 
-            // ha nincs kiválasztva, akkor a választott érték null 
+            
             if (login.logged)
             {
                 if (selectedRecord == null)
@@ -59,10 +57,10 @@ namespace P001_Connection
                     return;
                 }
 
-                // 2) kinyerem, hogy mit is kell törölni 
+                 
                 Focista recordToDelete = selectedRecord;
 
-                // 3) törlöm a rekordot a db-ből 
+                
                 bool success = dbManager.DeleteFocista(recordToDelete);
 
                 if (success)
@@ -84,13 +82,13 @@ namespace P001_Connection
         private static Random rnd = new Random();
         private void button_insert_Click(object sender, EventArgs e)
         {
-            // a bevitt adatokból készítek egy rekordot 
+            
             Focista newRecord = new Focista();
             if (login.logged)
             {
                 try
                 {
-                    newRecord.Id = rnd.Next(10, 100); // TODO: javítani később, ez csak tesztelésre 
+                    newRecord.Id = rnd.Next(10, 100000); 
                     newRecord.Szuletesi_ev = int.Parse(tb1.Text);
                     newRecord.Vezeteknev = tb2.Text;
                     newRecord.Keresztnev = tb3.Text;
@@ -101,8 +99,7 @@ namespace P001_Connection
                     return;
                 }
 
-                // ha ide jutunk, akkor a példányosítás során nem volt 
-                // gond, mehet az insert 
+              
                 bool success = dbManager.InsertFocista(newRecord);
 
                 if (success)
