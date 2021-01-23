@@ -590,7 +590,7 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "INSERT INTO User_logs(id, bejelentkezes) VALUES(:id, :bejelentkezes)"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "INSERT INTO User_logs(id, bejelentkezes) VALUES (:id, :bejelentkezes)"; // :id => egy dinamikus paraméter lesz 
 
             // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
             OracleParameter idParameter = new OracleParameter();
