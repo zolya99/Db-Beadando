@@ -67,8 +67,7 @@
             this.Password_tb.Location = new System.Drawing.Point(212, 99);
             this.Password_tb.Name = "Password_tb";
             this.Password_tb.Size = new System.Drawing.Size(339, 22);
-            this.Password_tb.TabIndex = 5;
-            this.Password_tb.TextChanged += new System.EventHandler(this.Password_tb_TextChanged);
+            this.Password_tb.TabIndex = 7;
             // 
             // btnlogin
             // 

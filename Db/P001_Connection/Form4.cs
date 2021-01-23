@@ -26,10 +26,7 @@ namespace P001_Connection
 
         
 
-        private void Password_tb_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnlogin_Click_1(object sender, EventArgs e)
         {
