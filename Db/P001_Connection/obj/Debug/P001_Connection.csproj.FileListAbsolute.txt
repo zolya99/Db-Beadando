@@ -50,3 +50,4 @@ C:\Users\zolya\Desktop\Beadandó DB\Db-Beadando\Db\P001_Connection\obj\Debug\P00
 C:\Users\zolya\Desktop\Beadandó DB\Db-Beadando\Db\P001_Connection\obj\Debug\P001_Connection.csproj.CopyComplete
 C:\Users\zolya\Desktop\Beadandó DB\Db-Beadando\Db\P001_Connection\obj\Debug\P001_Connection.exe
 C:\Users\zolya\Desktop\Beadandó DB\Db-Beadando\Db\P001_Connection\obj\Debug\P001_Connection.pdb
+C:\Users\zolya\Desktop\Beadandó DB\Db-Beadando\Db\P001_Connection\obj\Debug\P001_Connection.Form4.resources

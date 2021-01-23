@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace P001_Connection.Model.Manager
 {
     // ő feladata a db kezelés 
-    class CountryManager : IInsert<Focista>, IInsertP<Poszt>, IInsertC<Csapat>,
+    class Manager : IInsert<Focista>, IInsertP<Poszt>, IInsertC<Csapat>,
                            IUpdate<Focista>, IUpdateP<Poszt>, IUpdateC<Csapat>,
                            IDelete<Focista>, IDeleteP<Poszt>, IDeleteC<Csapat>,
                            ISelect<Focista>, ISelectP<Poszt>, ISelectC<Csapat>
@@ -518,6 +518,70 @@ namespace P001_Connection.Model.Manager
             oracleConnection.Close();
 
             return rows != 0;
+
+        }
+
+        public List<User> UserReadAll()
+        {
+            OracleConnection oracleConnection = getConnection();
+
+            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
+            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
+            command.CommandText = "SELECT * FROM Users"; // mit kell végrehajtani
+            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            command.CommandTimeout = 0;
+            oracleConnection.Open();
+
+
+            List<User> records = new List<User>();
+            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
+            while (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            {
+                User temp = new User();
+                temp.Id = int.Parse(oracleDataReader["id"].ToString());
+                temp.Felhasznalonev = oracleDataReader["felhasznalonev"].ToString();
+                temp.Jelszo = oracleDataReader["jelszo"].ToString();
+
+                records.Add(temp);
+            }
+
+            oracleConnection.Close();// db kapcsolat zárása
+
+            return records;
+        }
+
+        public User CheckUsername(User record)
+        {
+            OracleConnection oracleConnection = getConnection();
+
+            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
+            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
+            command.CommandText = "SELECT * FROM Users where id = :id"; // mit kell végrehajtani
+            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            command.CommandTimeout = 0;
+            oracleConnection.Open();
+
+            OracleParameter idParameter = new OracleParameter();
+            idParameter.ParameterName = "id";
+            idParameter.DbType = System.Data.DbType.Int32;
+            idParameter.Direction = System.Data.ParameterDirection.Input;
+            idParameter.Value = record.Id;
+            command.Parameters.Add(idParameter);
+
+            User temp = null;
+            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
+            if (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            {
+                temp = new User();
+                temp.Id = int.Parse(oracleDataReader["id"].ToString());
+                temp.Felhasznalonev = (oracleDataReader["felhasznalonev"].ToString());
+                temp.Jelszo = oracleDataReader["jelszo"].ToString();
+
+            }
+
+            oracleConnection.Close();// db kapcsolat zárása
+
+            return temp;
 
         }
     }

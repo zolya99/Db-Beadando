@@ -14,13 +14,13 @@ namespace P001_Connection
 {
     public partial class Form3 : Form
     {
-        private CountryManager dbManager;
+        private Manager dbManager;
         private List<Poszt> records;
         public Form3()
         {
             InitializeComponent();
 
-            dbManager = new CountryManager();
+            dbManager = new Manager();
         }
 
         private void Form3_Shown(object sender, EventArgs e)
