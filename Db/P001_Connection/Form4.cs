@@ -37,10 +37,8 @@ namespace P001_Connection
                 if (Username_tb.Text == user.Felhasznalonev && Password_tb.Text == user.Jelszo)
                 {
                     logged = true;
-                    
                     MessageBox.Show("Logged In");
-                    
-                    
+                    this.Close();
                 }
                 else
                 {
