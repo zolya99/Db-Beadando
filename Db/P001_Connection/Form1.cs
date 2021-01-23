@@ -14,13 +14,13 @@ namespace P001_Connection
 {
     public partial class Form1 : Form
     {
-        private CountryManager dbManager;
+        private Manager dbManager;
         private List<Focista> records;
         public Form1()
         {
             InitializeComponent();
 
-            dbManager = new CountryManager();
+            dbManager = new Manager();
         }
 
         private void Form1_Shown(object sender, EventArgs e)

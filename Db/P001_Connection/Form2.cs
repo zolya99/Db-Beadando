@@ -14,13 +14,13 @@ namespace P001_Connection
 {
     public partial class Form2 : Form
     {
-        private CountryManager dbManager;
+        private Manager dbManager;
         private List<Csapat> records;
         public Form2()
         {
             InitializeComponent();
 
-            dbManager = new CountryManager();
+            dbManager = new Manager();
         }
 
         private void Form2_Shown(object sender, EventArgs e)
