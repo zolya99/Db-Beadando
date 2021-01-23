@@ -39,13 +39,11 @@ namespace P001_Connection
                     logged = true;
                     
                     MessageBox.Show("Logged In");
-                    Username_tb.Clear();
-                    Password_tb.Clear();
-                    Close();
+                    
+                    
                 }
                 else
                 {
-
                     MessageBox.Show("Ilyen felhasználónév és jelszó kombináció nem létezik! Kérlek próbáld újra!");
                 }
             }
