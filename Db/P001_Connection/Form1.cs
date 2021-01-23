@@ -22,6 +22,7 @@ namespace P001_Connection
             InitializeComponent();
 
             dbManager = new Manager();
+            btnlogout.Enabled = false;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -234,6 +235,15 @@ namespace P001_Connection
         private void groupBox_update_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            if (login.logged)
+            {
+                btnlogout.Enabled = true;
+                Close();
+            }
         }
     }
 }

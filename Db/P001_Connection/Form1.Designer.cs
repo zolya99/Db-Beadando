@@ -47,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnlogout = new System.Windows.Forms.Button();
             this.groupBox_insert.SuspendLayout();
             this.groupBox_update.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -186,7 +187,7 @@
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(690, 420);
+            this.btn_login.Location = new System.Drawing.Point(560, 422);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(109, 29);
             this.btn_login.TabIndex = 7;
@@ -232,11 +233,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Csapatok és Posztok módosítása";
             // 
+            // btnlogout
+            // 
+            this.btnlogout.Location = new System.Drawing.Point(696, 425);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(105, 26);
+            this.btnlogout.TabIndex = 9;
+            this.btnlogout.Text = "Kijelentkezés";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnlogout);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.groupBox_update);
@@ -276,6 +288,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnlogout;
     }
 }
 
