@@ -51,59 +51,75 @@ namespace P001_Connection
         {
             // 1) van-e egyáltalán kiválasztva elem a listában 
             // ha nincs kiválasztva, akkor a választott érték null 
-            if(selectedRecord == null)
+            if (login.logged)
             {
-                MessageBox.Show("Nincs elem kiválasztva a törléshez!");
-                return;
-            }
+                if (selectedRecord == null)
+                {
+                    MessageBox.Show("Nincs elem kiválasztva a törléshez!");
+                    return;
+                }
 
-            // 2) kinyerem, hogy mit is kell törölni 
-            Focista recordToDelete = selectedRecord;
+                // 2) kinyerem, hogy mit is kell törölni 
+                Focista recordToDelete = selectedRecord;
 
-            // 3) törlöm a rekordot a db-ből 
-            bool success = dbManager.DeleteFocista(recordToDelete);
+                // 3) törlöm a rekordot a db-ből 
+                bool success = dbManager.DeleteFocista(recordToDelete);
 
-            if (success)
-            {
-                loadComboBox();
+                if (success)
+                {
+                    loadComboBox();
+                }
+                else
+                {
+                    MessageBox.Show("A törlés sikertelen volt!");
+                }
             }
             else
             {
-                MessageBox.Show("A törlés sikertelen volt!");
+                MessageBox.Show("Először jelentkezz be!");
             }
         }
+            
 
         private static Random rnd = new Random();
         private void button_insert_Click(object sender, EventArgs e)
         {
             // a bevitt adatokból készítek egy rekordot 
             Focista newRecord = new Focista();
-            try
+            if (login.logged)
             {
-                newRecord.Id = rnd.Next(10, 100); // TODO: javítani később, ez csak tesztelésre 
-                newRecord.Szuletesi_ev = int.Parse(tb1.Text);
-                newRecord.Vezeteknev = tb2.Text;
-                newRecord.Keresztnev = tb3.Text;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+                try
+                {
+                    newRecord.Id = rnd.Next(10, 100); // TODO: javítani később, ez csak tesztelésre 
+                    newRecord.Szuletesi_ev = int.Parse(tb1.Text);
+                    newRecord.Vezeteknev = tb2.Text;
+                    newRecord.Keresztnev = tb3.Text;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
-            // ha ide jutunk, akkor a példányosítás során nem volt 
-            // gond, mehet az insert 
-            bool success = dbManager.InsertFocista(newRecord);
+                // ha ide jutunk, akkor a példányosítás során nem volt 
+                // gond, mehet az insert 
+                bool success = dbManager.InsertFocista(newRecord);
 
-            if (success)
-            {
-                MessageBox.Show("Sikeres rögzítés");
-                tb1.Text = string.Empty;
-                tb2.Text = string.Empty;
-                tb3.Text = string.Empty;
-                loadComboBox();
+                if (success)
+                {
+                    MessageBox.Show("Sikeres rögzítés");
+                    tb1.Text = string.Empty;
+                    tb2.Text = string.Empty;
+                    tb3.Text = string.Empty;
+                    loadComboBox();
+                }
+                else MessageBox.Show("Hiba az insert során!");
             }
-            else MessageBox.Show("Hiba az insert során!");
+            else
+            {
+                MessageBox.Show("Először jelentkezz be!");
+            }
+           
         }
 
         Focista selectedRecord;
@@ -136,32 +152,40 @@ namespace P001_Connection
         private void button_update_Click(object sender, EventArgs e)
         {
             Focista temp = new Focista();
-            try
+            if (login.logged)
             {
-                temp.Id = selectedRecord.Id;
-                temp.Szuletesi_ev = int.Parse(tb1u.Text);
-                temp.Vezeteknev = tb2u.Text;
-                temp.Keresztnev = tb3u.Text;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+                try
+                {
+                    temp.Id = selectedRecord.Id;
+                    temp.Szuletesi_ev = int.Parse(tb1u.Text);
+                    temp.Vezeteknev = tb2u.Text;
+                    temp.Keresztnev = tb3u.Text;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
-            if (dbManager.UpdateFocista(temp))
-            {
-                MessageBox.Show("Sikeres módosítás!");
-                tb1u.Text = string.Empty;
-                tb2u.Text = string.Empty;
-                tb3u.Text = string.Empty;
-                
-                loadComboBox();
+                if (dbManager.UpdateFocista(temp))
+                {
+                    MessageBox.Show("Sikeres módosítás!");
+                    tb1u.Text = string.Empty;
+                    tb2u.Text = string.Empty;
+                    tb3u.Text = string.Empty;
+
+                    loadComboBox();
+                }
+                else
+                {
+                    MessageBox.Show("Hiba");
+                }
             }
             else
             {
-                MessageBox.Show("Hiba");
+                MessageBox.Show("ELőször jelentkezz be!");
             }
+            
         }
 
         
@@ -170,13 +194,29 @@ namespace P001_Connection
         {
             
             Form3 poszt = new Form3();
-            poszt.Show();
+            if (login.logged)
+            {
+                poszt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Először jelentkezz be!");
+            }
+            
         }
 
         private void btnC_Click_1(object sender, EventArgs e)
         {
             Form2 csapat = new Form2();
-            csapat.Show();
+            if (login.logged)
+            {
+                csapat.Show();
+            }
+            else
+            {
+                MessageBox.Show("Először jelentkezz be!");
+            }
+            
         }
 
         private void btn_login_Click(object sender, EventArgs e)
