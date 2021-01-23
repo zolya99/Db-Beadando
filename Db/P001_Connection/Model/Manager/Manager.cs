@@ -13,7 +13,7 @@ namespace P001_Connection.Model.Manager
     class Manager : IInsert<Focista>, IInsertP<Poszt>, IInsertC<Csapat>,
                            IUpdate<Focista>, IUpdateP<Poszt>, IUpdateC<Csapat>,
                            IDelete<Focista>, IDeleteP<Poszt>, IDeleteC<Csapat>,
-                           ISelect<Focista>, ISelectP<Poszt>, ISelectC<Csapat>
+                           ISelect<Focista>, ISelectP<Poszt>, ISelectC<Csapat>, ISelectU<User>
     {
 
         private OracleConnection getConnection()
