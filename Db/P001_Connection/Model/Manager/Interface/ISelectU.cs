@@ -10,6 +10,6 @@ namespace P001_Connection.Model.Manager.Interface
     interface ISelectU<U> where U : BaseRecordU
     {
         List<U> UserReadAll();
-        U UserReadAll(U record);
+        //U UserReadAll(U record);
     }
 }
