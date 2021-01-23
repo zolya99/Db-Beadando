@@ -16,6 +16,7 @@ namespace P001_Connection
     {
         private Manager dbManager;
         private List<Focista> records;
+        Form4 login = new Form4();
         public Form1()
         {
             InitializeComponent();
@@ -176,6 +177,19 @@ namespace P001_Connection
         {
             Form2 csapat = new Form2();
             csapat.Show();
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            if (login.logged)
+            {
+                MessageBox.Show("Már be vagy jelentkezve!");
+
+            }
+            else
+            {
+                login.Show();
+            }
         }
     }
 }

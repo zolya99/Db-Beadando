@@ -42,6 +42,7 @@
             this.tb1u = new System.Windows.Forms.TextBox();
             this.btnP = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.Button();
+            this.btn_login = new System.Windows.Forms.Button();
             this.groupBox_insert.SuspendLayout();
             this.groupBox_update.SuspendLayout();
             this.SuspendLayout();
@@ -174,11 +175,22 @@
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnC_Click_1);
             // 
+            // btn_login
+            // 
+            this.btn_login.Location = new System.Drawing.Point(690, 420);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(109, 29);
+            this.btn_login.TabIndex = 7;
+            this.btn_login.Text = "Bejelentkezés";
+            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_login);
             this.Controls.Add(this.btnC);
             this.Controls.Add(this.btnP);
             this.Controls.Add(this.groupBox_update);
@@ -212,6 +224,7 @@
         private System.Windows.Forms.TextBox tb3u;
         private System.Windows.Forms.Button btnP;
         private System.Windows.Forms.Button btnC;
+        private System.Windows.Forms.Button btn_login;
     }
 }
 
