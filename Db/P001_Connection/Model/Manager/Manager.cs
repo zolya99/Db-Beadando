@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace P001_Connection.Model.Manager
 {
-    // ő feladata a db kezelés 
+    
     class Manager : IInsert<Focista>, IInsertP<Poszt>, IInsertC<Csapat>,
                            IUpdate<Focista>, IUpdateP<Poszt>, IUpdateC<Csapat>,
                            IDelete<Focista>, IDeleteP<Poszt>, IDeleteC<Csapat>,
@@ -30,9 +30,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "DELETE FROM focista WHERE focista.id = :id"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "DELETE FROM focista WHERE focista.id = :id";
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -55,9 +55,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "DELETE FROM Poszt WHERE poszt.id = :id"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "DELETE FROM Poszt WHERE poszt.id = :id"; 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -80,9 +80,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "DELETE FROM Csapat WHERE csapat.id = :id"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "DELETE FROM Csapat WHERE csapat.id = :id"; 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -103,16 +103,16 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Focista"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text; 
+            command.CommandText = "SELECT * FROM Focista"; 
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
-            oracleConnection.Open(); // db kapcsolat nyitása 
+            oracleConnection.Open(); 
 
             List<Focista> records = new List<Focista>();
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            while (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader(); 
+            while (oracleDataReader.Read()) 
             {
                 Focista temp = new Focista();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -123,7 +123,7 @@ namespace P001_Connection.Model.Manager
                 records.Add(temp);
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return records;
         }
@@ -132,16 +132,16 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Poszt"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text; 
+            command.CommandText = "SELECT * FROM Poszt"; 
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
-            oracleConnection.Open(); // db kapcsolat nyitása 
+            oracleConnection.Open(); 
 
             List<Poszt> records = new List<Poszt>();
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            while (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader();  
+            while (oracleDataReader.Read()) 
             {
                 Poszt temp = new Poszt();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -150,7 +150,7 @@ namespace P001_Connection.Model.Manager
                 records.Add(temp);
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return records;
         }
@@ -159,16 +159,16 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Csapat"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text; 
+            command.CommandText = "SELECT * FROM Csapat"; 
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
-            oracleConnection.Open(); // db kapcsolat nyitása 
+            oracleConnection.Open(); 
 
             List<Csapat> records = new List<Csapat>();
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            while (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader();
+            while (oracleDataReader.Read()) 
             {
                 Csapat temp = new Csapat();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -177,7 +177,7 @@ namespace P001_Connection.Model.Manager
                 records.Add(temp);
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return records;
         }
@@ -186,14 +186,14 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Focista WHERE id = :id"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text; 
+            command.CommandText = "SELECT * FROM Focista WHERE id = :id"; 
+            command.Connection = oracleConnection;  
             command.CommandTimeout = 0;
-            oracleConnection.Open(); // db kapcsolat nyitása 
+            oracleConnection.Open(); 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -204,8 +204,8 @@ namespace P001_Connection.Model.Manager
 
 
             Focista temp = null;
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            if (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader();
+            if (oracleDataReader.Read()) 
             {
                 temp = new Focista();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -215,7 +215,7 @@ namespace P001_Connection.Model.Manager
 
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return temp;
         }
@@ -224,14 +224,14 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Poszt WHERE id = :id"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand();  
+            command.CommandType = System.Data.CommandType.Text; 
+            command.CommandText = "SELECT * FROM Poszt WHERE id = :id"; 
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
-            oracleConnection.Open(); // db kapcsolat nyitása 
+            oracleConnection.Open(); 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -240,8 +240,8 @@ namespace P001_Connection.Model.Manager
             command.Parameters.Add(idParameter);
 
             Poszt temp = null;
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            if (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader();
+            if (oracleDataReader.Read()) 
             {
                 temp = new Poszt();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -250,7 +250,7 @@ namespace P001_Connection.Model.Manager
 
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return temp;
         }
@@ -259,14 +259,14 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Csapat WHERE id = :id"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text;  
+            command.CommandText = "SELECT * FROM Csapat WHERE id = :id"; 
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
-            oracleConnection.Open(); // db kapcsolat nyitása 
+            oracleConnection.Open(); 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -275,15 +275,15 @@ namespace P001_Connection.Model.Manager
             command.Parameters.Add(idParameter);
 
             Csapat temp = null;
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            if (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader();
+            if (oracleDataReader.Read())
             {
                 temp = new Csapat();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
                 temp.Nev = oracleDataReader["nev"].ToString();
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return temp;
         }
@@ -295,9 +295,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "INSERT INTO Focista(id, szuletesi_ev, vezeteknev, keresztnev) VALUES (:id, :szuletesi_ev, :vezeteknev, :keresztnev)"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "INSERT INTO Focista(id, szuletesi_ev, vezeteknev, keresztnev) VALUES (:id, :szuletesi_ev, :vezeteknev, :keresztnev)";
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+             
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -344,9 +344,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "INSERT INTO Poszt(id, megnevezes) VALUES (:id, :megnevezes)"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "INSERT INTO Poszt(id, megnevezes) VALUES (:id, :megnevezes)";
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -376,9 +376,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "INSERT INTO Csapat(id, nev) VALUES (:id, :nev)"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "INSERT INTO Csapat(id, nev) VALUES (:id, :nev)";
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -409,7 +409,7 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "UPDATE Focista SET szuletesi_ev = :szuletesi_ev, vezeteknev = :vezeteknev, keresztnev = :keresztnev WHERE id = :id"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "UPDATE Focista SET szuletesi_ev = :szuletesi_ev, vezeteknev = :vezeteknev, keresztnev = :keresztnev WHERE id = :id"; 
 
             OracleParameter szuletesi_evParameter = new OracleParameter();
             szuletesi_evParameter.ParameterName = "szuletesi_ev";
@@ -434,7 +434,7 @@ namespace P001_Connection.Model.Manager
             oracleCommand.Parameters.Add(keresztnevParameter);
 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
@@ -457,7 +457,7 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "UPDATE Poszt SET megnevezes = :megnevezes WHERE id = :id"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "UPDATE Poszt SET megnevezes = :megnevezes WHERE id = :id"; 
 
 
 
@@ -492,7 +492,7 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "UPDATE Csapat SET nev = :nev WHERE id = :id"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "UPDATE Csapat SET nev = :nev WHERE id = :id";
 
 
 
@@ -524,17 +524,17 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Users"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text; 
+            command.CommandText = "SELECT * FROM Users"; 
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
             oracleConnection.Open();
 
 
             List<User> records = new List<User>();
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            while (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader(); 
+            while (oracleDataReader.Read())
             {
                 User temp = new User();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -544,7 +544,7 @@ namespace P001_Connection.Model.Manager
                 records.Add(temp);
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return records;
         }
@@ -553,10 +553,10 @@ namespace P001_Connection.Model.Manager
         {
             OracleConnection oracleConnection = getConnection();
 
-            OracleCommand command = new OracleCommand(); // SQL parancs leírásához 
-            command.CommandType = System.Data.CommandType.Text; // SQL utasítást fogalmazok meg 
-            command.CommandText = "SELECT * FROM Users where id = :id"; // mit kell végrehajtani
-            command.Connection = oracleConnection; // beállítom a parancs kapcsolatát 
+            OracleCommand command = new OracleCommand(); 
+            command.CommandType = System.Data.CommandType.Text;  
+            command.CommandText = "SELECT * FROM Users where id = :id";
+            command.Connection = oracleConnection; 
             command.CommandTimeout = 0;
             oracleConnection.Open();
 
@@ -568,8 +568,8 @@ namespace P001_Connection.Model.Manager
             command.Parameters.Add(idParameter);
 
             User temp = null;
-            OracleDataReader oracleDataReader = command.ExecuteReader(); // parancs végrehajtás 
-            if (oracleDataReader.Read()) // egy sor visszaolvasás és ezt betolti a példányba 
+            OracleDataReader oracleDataReader = command.ExecuteReader();
+            if (oracleDataReader.Read())
             {
                 temp = new User();
                 temp.Id = int.Parse(oracleDataReader["id"].ToString());
@@ -578,7 +578,7 @@ namespace P001_Connection.Model.Manager
 
             }
 
-            oracleConnection.Close();// db kapcsolat zárása
+            oracleConnection.Close();
 
             return temp;
 
@@ -590,9 +590,9 @@ namespace P001_Connection.Model.Manager
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.CommandType = System.Data.CommandType.Text;
-            oracleCommand.CommandText = "INSERT INTO User_logs(id, bejelentkezes) VALUES (:id, :bejelentkezes)"; // :id => egy dinamikus paraméter lesz 
+            oracleCommand.CommandText = "INSERT INTO User_logs(id, bejelentkezes) VALUES (:id, :bejelentkezes)"; 
 
-            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            
             OracleParameter idParameter = new OracleParameter();
             idParameter.ParameterName = "id";
             idParameter.DbType = System.Data.DbType.Int32;
