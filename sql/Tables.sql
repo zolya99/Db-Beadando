@@ -22,6 +22,16 @@ CREATE TABLE Jatszik(
 Focista int references Focista(id),
 Poszt int references Poszt(id),
 primary key (Focista, Poszt));
+
+CREATE TABLE Users(
+id int PRIMARY KEY,
+felhasznalonev varchar2(50),
+jelszo varchar2(50));
+
+CREATE TABLE User_logs(
+id int references Users(id),
+bejelentkezes TIMESTAMP);
+
 commit;
 
 
@@ -39,3 +49,5 @@ INSERT INTO Poszt VALUES ('6','Középpályás');
 Insert Into Focista Values ('1', '1995', 'Végh', 'Béla');
 
 Insert Into Tagja Values ('4', '2', '2');
+
+INSERT INTO Users Values ('1', 'zolya', 'almafa123');
