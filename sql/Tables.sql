@@ -51,3 +51,4 @@ Insert Into Focista Values ('1', '1995', 'Végh', 'Béla');
 Insert Into Tagja Values ('4', '2', '2');
 
 INSERT INTO Users Values ('1', 'zolya', 'almafa123');
+INSERT INTO Users Values ('2', 'teszt', 'teszt123');
