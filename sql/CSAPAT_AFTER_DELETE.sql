@@ -1,0 +1,6 @@
+create or replace TRIGGER CSAPAT_AFTER_DELETE 
+AFTER DELETE ON Csapat
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Deleted');
+END;

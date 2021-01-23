@@ -1,0 +1,6 @@
+create or replace TRIGGER FOCISTA_AFTER_UPDATE 
+AFTER UPDATE ON focista
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Updated');
+END;

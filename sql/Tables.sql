@@ -32,6 +32,10 @@ CREATE TABLE User_logs(
 id int references Users(id),
 bejelentkezes TIMESTAMP);
 
+CREATE TABLE Logs(
+nev varchar2(50),
+modositas varchar2(50));
+
 commit;
 
 

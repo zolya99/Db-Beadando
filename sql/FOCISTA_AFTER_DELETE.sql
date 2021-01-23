@@ -1,0 +1,6 @@
+create or replace TRIGGER FOCISTA_AFTER_DELETE 
+AFTER DELETE ON focista
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Deleted');
+END;

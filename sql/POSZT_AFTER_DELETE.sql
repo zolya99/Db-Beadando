@@ -1,0 +1,6 @@
+create or replace TRIGGER POSZT_AFTER_DELETE 
+AFTER DELETE ON Poszt
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Deleted');
+END;

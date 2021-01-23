@@ -1,0 +1,197 @@
+create or replace PROCEDURE INSERT_CSAPAT
+(
+    p_nev       in csapat.nev%TYPE
+    
+)
+AUTHID DEFINER
+AS 
+    v_i         INT := 1;
+    v_char      CHAR; 
+    v_ascii     INT;
+    v_cnt       INT;
+    v_id        INT;
+    v_rowcnt    INT;
+BEGIN
+  WHILE v_i <= LENGTH(TRIM(p_nev)) LOOP 
+        v_char := SUBSTR(p_nev, v_i, 1);
+
+
+        v_i := v_i + 1;
+    END LOOP;
+    
+    SELECT 
+        COUNT(*)
+    INTO
+        v_cnt
+    FROM csapat
+    WHERE nev = p_nev;
+    
+    IF v_cnt <> 0 THEN
+        RETURN;
+    END IF;
+    
+    v_id := GET_CSAPAT_NEXT_ID();
+    
+    INSERT INTO csapat(id, nev)
+    VALUES (v_id, p_nev);
+    
+    /* Implicit kurzorattribútum segístségével le tudom kérdezni az éri ntett sorok számát*/
+    /* Fontos az, hogy az attribútum értékének kiolvasása közvetlen kövesse a végrehajtását*/
+    v_rowcnt := SQL%ROWCOUNT;
+END INSERT_CSAPAT;
+
+
+
+create or replace PROCEDURE INSERT_FOCISTA
+(
+    p_szuletesi_ev  IN  focista.szuletesi_ev%TYPE,
+    p_vezeteknev      IN  focista.vezeteknev%TYPE,
+    p_keresztnev IN focista.keresztnev%TYPE
+)
+AUTHID DEFINER
+AS 
+    v_i         INT := 1;
+    v_char      CHAR; 
+    v_ascii     INT;
+    v_cnt       INT;
+    v_id        INT;
+    v_rowcnt  INT;
+BEGIN
+  IF p_szuletesi_ev < 1930 and p_szuletesi_ev > 2003 THEN 
+        RETURN;
+    END IF;
+
+    -- MINDEN KARAKTERE BETŰ-E 
+WHILE v_i <= LENGTH(TRIM(p_vezeteknev)) LOOP 
+    v_char := SUBSTR(p_vezeteknev, v_i, 1);
+    v_i := v_i + 1;
+END LOOP;
+    
+WHILE v_i <= LENGTH(TRIM(p_keresztnev)) LOOP 
+    v_char := SUBSTR(p_keresztnev, v_i, 1);
+    v_i := v_i + 1;
+END LOOP;
+    
+v_id := GET_FOCISTA_NEXT_ID();
+    
+INSERT INTO focista(id, szuletesi_ev, vezeteknev, keresztnev)
+VALUES (v_id, p_szuletesi_ev, p_vezeteknev, p_keresztnev);
+v_rowcnt := SQL%ROWCOUNT;
+END INSERT_FOCISTA;
+
+
+create or replace PROCEDURE INSERT_JATSZIK
+(
+    p_id        IN focista.id%TYPE,
+    p_id2       IN poszt.id%TYPE
+)
+AUTHID DEFINER
+AS 
+    v_i         INT := 1;
+    v_char      CHAR; 
+    v_ascii     INT;
+    v_cnt       INT;
+
+BEGIN
+    SELECT 
+        COUNT(*)
+    INTO
+        v_cnt
+    FROM focista
+    WHERE id = p_id;
+    
+    IF v_cnt = 0 THEN
+        RETURN;
+    END IF;
+    
+    SELECT 
+        COUNT(*)
+    INTO
+        v_cnt
+    FROM poszt
+    WHERE id = p_id2;
+    
+    IF v_cnt = 0 THEN
+        RETURN;
+    END IF;
+    
+    INSERT INTO jatszik(focista, poszt)
+    VALUES (p_id, p_id2);
+
+END INSERT_JATSZIK;
+
+
+
+create or replace PROCEDURE INSERT_POSZT
+(
+    p_megnevezes       in poszt.megnevezes%TYPE,
+    p_id        OUT poszt.id%TYPE
+    
+)
+AUTHID DEFINER
+AS 
+    v_i         INT := 1;
+    v_char      CHAR; 
+    v_ascii     INT;
+    v_cnt       INT;
+    
+BEGIN
+  WHILE v_i <= LENGTH(TRIM(p_megnevezes)) LOOP 
+        v_char := SUBSTR(p_megnevezes, v_i, 1);
+
+
+        v_i := v_i + 1;
+    END LOOP;
+    
+    SELECT 
+        COUNT(*)
+    INTO
+        v_cnt
+    FROM poszt
+    WHERE megnevezes = p_megnevezes;
+    
+    IF v_cnt <> 0 THEN
+        RETURN;
+    END IF;
+END INSERT_POSZT;
+
+
+create or replace PROCEDURE INSERT_TAGJA
+(
+    p_id        IN focista.id%TYPE,
+    p_id2       IN csapat.id%TYPE,
+    p_mezszam   IN tagja.mezszam%TYPE
+)
+AUTHID DEFINER
+AS 
+    v_i         INT := 1;
+    v_char      CHAR; 
+    v_ascii     INT;
+    v_cnt       INT;
+BEGIN
+    SELECT 
+        COUNT(*)
+    INTO
+        v_cnt
+    FROM focista
+    WHERE id = p_id;
+    
+    IF v_cnt = 0 THEN
+        RETURN;
+    END IF;
+    
+    SELECT 
+        COUNT(*)
+    INTO
+        v_cnt
+    FROM csapat
+    WHERE id = p_id2;
+    
+    IF v_cnt = 0 THEN
+        RETURN;
+    END IF;
+      
+    INSERT INTO tagja(focista, csapat, mezszam)
+    VALUES (p_id, p_id2, p_mezszam);
+
+END INSERT_TAGJA;

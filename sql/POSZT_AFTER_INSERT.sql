@@ -1,0 +1,6 @@
+create or replace TRIGGER POSZT_AFTER_INSERT 
+AFTER INSERT ON Poszt
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Inserted');
+END;

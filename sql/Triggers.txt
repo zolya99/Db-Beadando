@@ -1,0 +1,77 @@
+create or replace TRIGGER CSAPAT_AFTER_DELETE 
+AFTER DELETE ON Csapat
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Deleted');
+END;
+
+
+create or replace TRIGGER CSAPAT_AFTER_INSERT 
+AFTER INSERT ON Csapat
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Inserted');
+END;
+
+
+create or replace TRIGGER CSAPAT_AFTER_UPDATE 
+AFTER UPDATE ON Csapat
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Updated');
+END;
+
+
+create or replace TRIGGER FOCISTA_AFTER_DELETE 
+AFTER DELETE ON focista
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Deleted');
+END;
+
+
+create or replace TRIGGER FOCISTA_AFTER_INSERT 
+After INSERT ON focista
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Inserted');
+END;
+
+
+create or replace TRIGGER FOCISTA_AFTER_UPDATE 
+AFTER UPDATE ON focista
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Updated');
+END;
+
+
+create or replace TRIGGER POSZT_AFTER_DELETE 
+AFTER DELETE ON Poszt
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Deleted');
+END;
+
+
+create or replace TRIGGER POSZT_AFTER_INSERT 
+AFTER INSERT ON Poszt
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Inserted');
+END;
+
+
+create or replace TRIGGER POSZT_AFTER_UPDATE 
+AFTER UPDATE ON POSZT
+FOR EACH ROW
+BEGIN
+  INSERT INTO Logs VALUES(:new.id, 'Updated');
+END;
+
+
+create or replace TRIGGER LOG_USERS 
+AFTER INSERT ON Users FOR EACH ROW
+  BEGIN
+    INSERT INTO USER_LOGS VALUES(:new.id, SYSDATE);
+ END;
