@@ -583,5 +583,30 @@ namespace P001_Connection.Model.Manager
             return temp;
 
         }
+
+        public User AddLog(User record)
+        {
+            OracleConnection oracleConnection = getConnection();
+
+            OracleCommand oracleCommand = new OracleCommand();
+            oracleCommand.CommandType = System.Data.CommandType.Text;
+            oracleCommand.CommandText = "INSERT INTO User_logs(id, bejelentkezes) VALUES(:id, :bejelentkezes)"; // :id => egy dinamikus paraméter lesz 
+
+            // a lekérdezés végrehajtásának előfeltétele, hogy a dinamikus paraméter értéket kapjon 
+            OracleParameter idParameter = new OracleParameter();
+            idParameter.ParameterName = "id";
+            idParameter.DbType = System.Data.DbType.Int32;
+            idParameter.Direction = System.Data.ParameterDirection.Input;
+            idParameter.Value = record.Id;
+            oracleCommand.Parameters.Add(idParameter);
+
+            oracleConnection.Open();
+            oracleCommand.Connection = oracleConnection;
+            int rows = oracleCommand.ExecuteNonQuery();
+
+            oracleConnection.Close();
+
+            return record;
+        }
     }
 }

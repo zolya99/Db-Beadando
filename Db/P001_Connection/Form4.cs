@@ -1,4 +1,5 @@
-﻿using P001_Connection.Model.Manager;
+﻿using Oracle.ManagedDataAccess.Client;
+using P001_Connection.Model.Manager;
 using P001_Connection.Model.Record;
 using System;
 using System.Collections.Generic;

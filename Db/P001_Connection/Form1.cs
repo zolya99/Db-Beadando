@@ -226,6 +226,8 @@ namespace P001_Connection
             else
             {
                 login.Show();
+           
+                
             }
         }
 
