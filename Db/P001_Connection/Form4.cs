@@ -30,7 +30,7 @@ namespace P001_Connection
 
         private void btnlogin_Click_1(object sender, EventArgs e)
         {
-            
+            records = dbManager.UserReadAll();
             foreach (User user in dbManager.UserReadAll())
             {
                 if (Username_tb.Text == user.Felhasznalonev && Password_tb.Text == user.Jelszo)
